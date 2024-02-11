@@ -1,10 +1,20 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
+
+import './config/unistyles';
+import {createStyleSheet, useStyles} from 'react-native-unistyles';
 
 export default function App() {
-  return (
-    <View>
-      <Text>Hello</Text>
-    </View>
-  );
+  const {styles} = useStyles(stylesheet);
+
+  return <View style={styles.container}></View>;
 }
+
+const stylesheet = createStyleSheet(theme => ({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: theme.colors.background,
+  },
+}));
